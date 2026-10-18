@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A1 English Exam - Module 4</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; }
+        h1, h2 { color: #2c3e50; text-align: center; }
+        .section { background-color: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .story-box { background-color: #e8f5e9; padding: 20px; border-radius: 8px; margin-bottom: 25px; font-style: italic; border-left: 5px solid #4caf50; }
+        .question { background-color: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #e0e0e0; margin-bottom: 20px; }
+        .question p { margin-top: 0; font-size: 1.1em; }
+        button { background-color: #3498db; border: none; color: white; padding: 10px 20px; margin-right: 10px; margin-bottom: 10px; font-size: 1em; border-radius: 5px; cursor: pointer; transition: background-color 0.2s; }
+        button:hover:not(:disabled) { background-color: #2980b9; }
+        button:disabled { cursor: default; opacity: 0.7; }
+        input[type="text"] { padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; width: 140px; }
+        .feedback { display: none; margin-top: 15px; padding: 15px; border-radius: 5px; font-size: 1em; }
+        .feedback.show { display: block; }
+        .feedback.success { background-color: #d4edda; color: #155724; border-left: 5px solid #28a745; }
+        .feedback.error { background-color: #f8d7da; color: #721c24; border-left: 5px solid #dc3545; }
+        .correct-text { font-weight: bold; }
+        .incorrect-btn { background-color: #dc3545 !important; }
+        .correct-btn { background-color: #28a745 !important; }
+        #score-board { text-align: center; font-size: 1.8em; font-weight: bold; color: #2c3e50; margin-top: 40px; padding: 30px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: none; }
+    </style>
+</head>
+<body>
+
+    <h1>A1 English Exam</h1>
+    
+    <!-- Part 1 -->
+    <div class="section" id="part1">
+        <h2>Part 1: Vocabulary & Grammar</h2>
+        
+        <div class="question" id="q1" data-correct="B" data-explanation="Your mother’s brother is your uncle.">
+            <p><strong>1. Your mother’s brother is your ________.</strong></p>
+            <button onclick="checkMCQ(1, 'A')">A) cousin</button>
+            <button onclick="checkMCQ(1, 'B')">B) uncle</button>
+            <button onclick="checkMCQ(1, 'C')">C) grandfather</button>
+            <div id="feedback-1" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q2" data-correct="B" data-explanation="An accountant works in an office (third-person singular).">
+            <p><strong>2. An accountant ________ in an office and manages the money.</strong></p>
+            <button onclick="checkMCQ(2, 'A')">A) work</button>
+            <button onclick="checkMCQ(2, 'B')">B) works</button>
+            <button onclick="checkMCQ(2, 'C')">C) working</button>
+            <div id="feedback-2" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q3" data-correct="C" data-explanation="2:45 is a quarter to three.">
+            <p><strong>3. What time is the biology class? "It's at 2:45." -> It's ________.</strong></p>
+            <button onclick="checkMCQ(3, 'A')">A) a quarter past two</button>
+            <button onclick="checkMCQ(3, 'B')">B) half past two</button>
+            <button onclick="checkMCQ(3, 'C')">C) a quarter to three</button>
+            <div id="feedback-3" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q4" data-correct="A" data-explanation="'How often' asks about frequency.">
+            <p><strong>4. ________ does your sister go to the cinema? "She goes twice a month."</strong></p>
+            <button onclick="checkMCQ(4, 'A')">A) How often</button>
+            <button onclick="checkMCQ(4, 'B')">B) When time</button>
+            <button onclick="checkMCQ(4, 'C')">C) Where</button>
+            <div id="feedback-4" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q5" data-correct="B" data-explanation="The pronoun 'They' uses the verb 'have'.">
+            <p><strong>5. William is Catherine's husband. They ________ a big family.</strong></p>
+            <button onclick="checkMCQ(5, 'A')">A) has</button>
+            <button onclick="checkMCQ(5, 'B')">B) have</button>
+            <button onclick="checkMCQ(5, 'C')">C) haves</button>
+            <div id="feedback-5" class="feedback"></div>
+        </div>
+
+        <div class="question" id="q6" data-correct="C" data-explanation="Biology involves studying living organisms.">
+            <p><strong>6. On Wednesdays, we study the human body, plants, and animals in our ________ class.</strong></p>
+            <button onclick="checkMCQ(6, 'A')">A) history</button>
+            <button onclick="checkMCQ(6, 'B')">B) psychology</button>
+            <button onclick="checkMCQ(6, 'C')">C) biology</button>
+            <div id="feedback-6" class="feedback"></div>
+        </div>
+
+        <div class="question" id="q7" data-correct="A" data-explanation="Third person singular requires 'has' and 'writes'.">
+            <p><strong>7. A manager usually ________ meetings and ________ emails.</strong></p>
+            <button onclick="checkMCQ(7, 'A')">A) has / writes</button>
+            <button onclick="checkMCQ(7, 'B')">B) have / write</button>
+            <button onclick="checkMCQ(7, 'C')">C) has / write</button>
+            <div id="feedback-7" class="feedback"></div>
+        </div>
+
+        <div class="question" id="q8" data-correct="B" data-explanation="'So' indicates a consequence.">
+            <p><strong>8. She loves literature, ________ she reads a new book every week.</strong></p>
+            <button onclick="checkMCQ(8, 'A')">A) because</button>
+            <button onclick="checkMCQ(8, 'B')">B) so</button>
+            <button onclick="checkMCQ(8, 'C')">C) but</button>
+            <div id="feedback-8" class="feedback"></div>
+        </div>
+
+        <div class="question" id="q9" data-correct="C" data-explanation="'When' asks about days or dates.">
+            <p><strong>9. ________ does the new mechanic start work? "He starts on Monday."</strong></p>
+            <button onclick="checkMCQ(9, 'A')">A) What</button>
+            <button onclick="checkMCQ(9, 'B')">B) Who</button>
+            <button onclick="checkMCQ(9, 'C')">C) When</button>
+            <div id="feedback-9" class="feedback"></div>
+        </div>
+
+        <div class="question" id="q10" data-correct="A" data-explanation="'Because' indicates a reason.">
+            <p><strong>10. My brother doesn't play soccer ________ he doesn't have free time.</strong></p>
+            <button onclick="checkMCQ(10, 'A')">A) because</button>
+            <button onclick="checkMCQ(10, 'B')">B) so</button>
+            <button onclick="checkMCQ(10, 'C')">C) and</button>
+            <div id="feedback-10" class="feedback"></div>
+        </div>
+    </div>
+
+    <!-- Part 2 -->
+    <div class="section" id="part2">
+        <h2>Part 2: Reading Comprehension</h2>
+        <div class="story-box">
+            <p>Meet the Johnson family. Robert is the father, and he is a doctor. He works in a big hospital. In his free time, he likes playing tennis. Susan is the mother, and she is an accountant. She works in an office. She loves reading books. Robert and Susan have two children, Emily and Jack. Emily is fourteen years old, and she is a student. She studies geography and literature. Her hobby is swimming. Jack is eleven years old, and he is also a student. His favorite subject is mathematics. On Saturdays, the whole family eats lunch together in the garden because they love spending time together.</p>
+        </div>
+        
+        <div class="question" id="q11" data-correct="False" data-explanation="Robert works in a hospital, not an office.">
+            <p><strong>11. Robert works in an office.</strong></p>
+            <button onclick="checkTF(11, 'True')">True</button>
+            <button onclick="checkTF(11, 'False')">False</button>
+            <button onclick="checkTF(11, 'Not Given')">Not Given</button>
+            <div id="feedback-11" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q12" data-correct="True" data-explanation="The text explicitly states Susan loves reading books.">
+            <p><strong>12. Susan enjoys reading books.</strong></p>
+            <button onclick="checkTF(12, 'True')">True</button>
+            <button onclick="checkTF(12, 'False')">False</button>
+            <button onclick="checkTF(12, 'Not Given')">Not Given</button>
+            <div id="feedback-12" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q13" data-correct="False" data-explanation="Jack is eleven years old, not thirteen.">
+            <p><strong>13. Jack is thirteen years old.</strong></p>
+            <button onclick="checkTF(13, 'True')">True</button>
+            <button onclick="checkTF(13, 'False')">False</button>
+            <button onclick="checkTF(13, 'Not Given')">Not Given</button>
+            <div id="feedback-13" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q14" data-correct="True" data-explanation="The text mentions Emily's hobby is swimming.">
+            <p><strong>14. Emily likes swimming.</strong></p>
+            <button onclick="checkTF(14, 'True')">True</button>
+            <button onclick="checkTF(14, 'False')">False</button>
+            <button onclick="checkTF(14, 'Not Given')">Not Given</button>
+            <div id="feedback-14" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q15" data-correct="False" data-explanation="They eat lunch together on Saturdays, not Sundays.">
+            <p><strong>15. The Johnson family eats lunch together on Sundays.</strong></p>
+            <button onclick="checkTF(15, 'True')">True</button>
+            <button onclick="checkTF(15, 'False')">False</button>
+            <button onclick="checkTF(15, 'Not Given')">Not Given</button>
+            <div id="feedback-15" class="feedback"></div>
+        </div>
+    </div>
+
+    <!-- Part 3 -->
+    <div class="section" id="part3">
+        <h2>Part 3: Question Formation</h2>
+        
+        <div class="question" id="q16" data-correct="Where does" data-explanation="Ask about location for third-person singular with 'Where does'.">
+            <p><strong>16. ________ ________ your mother work? "She works in a school."</strong></p>
+            <input type="text" id="q16-word1" placeholder="First word">
+            <input type="text" id="q16-word2" placeholder="Second word"><br>
+            <button id="btn-16" onclick="checkForm(16, 'Where', 'does')">Check Answer</button>
+            <div id="feedback-16" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q17" data-correct="Do you" data-explanation="Make a yes/no question with 'Do you'.">
+            <p><strong>17. ________ ________ you study physics? "Yes, I do."</strong></p>
+            <input type="text" id="q17-word1" placeholder="First word">
+            <input type="text" id="q17-word2" placeholder="Second word"><br>
+            <button id="btn-17" onclick="checkForm(17, 'Do', 'you')">Check Answer</button>
+            <div id="feedback-17" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q18" data-correct="Is Robert" data-explanation="Invert subject and verb for 'to be' questions.">
+            <p><strong>18. ________ ________ Robert late for work? "No, he is never late."</strong></p>
+            <input type="text" id="q18-word1" placeholder="First word">
+            <input type="text" id="q18-word2" placeholder="Second word"><br>
+            <button id="btn-18" onclick="checkForm(18, 'Is', 'Robert')">Check Answer</button>
+            <div id="feedback-18" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q19" data-correct="How often" data-explanation="Ask about frequency with 'How often'.">
+            <p><strong>19. ________ ________ does your sister play tennis? "She plays tennis twice a week."</strong></p>
+            <input type="text" id="q19-word1" placeholder="First word">
+            <input type="text" id="q19-word2" placeholder="Second word"><br>
+            <button id="btn-19" onclick="checkForm(19, 'How', 'often')">Check Answer</button>
+            <div id="feedback-19" class="feedback"></div>
+        </div>
+        
+        <div class="question" id="q20" data-correct="Who is" data-explanation="Identify a singular person with 'Who is'.">
+            <p><strong>20. ________ ________ William's wife? "She is Catherine."</strong></p>
+            <input type="text" id="q20-word1" placeholder="First word">
+            <input type="text" id="q20-word2" placeholder="Second word"><br>
+            <button id="btn-20" onclick="checkForm(20, 'Who', 'is')">Check Answer</button>
+            <div id="feedback-20" class="feedback"></div>
+        </div>
+    </div>
+
+    <div id="score-board"></div>
+
+    <script>
+        let scores = {
+            1: null, 2: null, 3: null, 4: null, 5: null, 
+            6: null, 7: null, 8: null, 9: null, 10: null,
+            11: null, 12: null, 13: null, 14: null, 15: null,
+            16: null, 17: null, 18: null, 19: null, 20: null
+        };
+        const totalQuestions = 20;
+
+        function updateScore(qNumber, isCorrect) {
+            scores[qNumber] = isCorrect ? 1 : 0;
+            const answeredCount = Object.values(scores).filter(val => val !== null).length;
+            if (answeredCount === totalQuestions) {
+                calculateTotalScore();
+            }
+        }
+
+        function calculateTotalScore() {
+            const totalScore = Object.values(scores).reduce((acc, val) => acc + val, 0);
+            const scoreBoard = document.getElementById('score-board');
+            scoreBoard.innerHTML = `Your Final Score: ${totalScore} out of ${totalQuestions}`;
+            scoreBoard.style.display = 'block';
+        }
+
+        function processFeedback(questionNumber, isCorrect, correctText, explanation, feedbackDiv, questionDiv) {
+            feedbackDiv.innerHTML = isCorrect 
+                ? '<span class="correct-text">Correct!</span>'
+                : `<span class="incorrect-text">Incorrect. The answer is ${correctText}.</span>`;
+            feedbackDiv.innerHTML += `<br><br><strong>Explanation:</strong> ${explanation}`;
+            feedbackDiv.className = `feedback show ${isCorrect ? 'success' : 'error'}`;
+
+            updateScore(questionNumber, isCorrect);
+        }
+
+        function checkMCQ(questionNumber, selected) {
+            const questionDiv = document.getElementById('q' + questionNumber);
+            const correct = questionDiv.getAttribute('data-correct');
+            const explanation = questionDiv.getAttribute('data-explanation');
+            const feedbackDiv = document.getElementById('feedback-' + questionNumber);
+            const isCorrect = (selected === correct);
+
+            processFeedback(questionNumber, isCorrect, correct, explanation, feedbackDiv, questionDiv);
+
+            const buttons = questionDiv.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                const btnLetter = btn.innerText.charAt(0);
+                if (btnLetter === correct) {
+                    btn.classList.add('correct-btn');
+                } else if (btnLetter === selected && !isCorrect) {
+                    btn.classList.add('incorrect-btn');
+                }
+            });
+        }
+
+        function checkTF(questionNumber, selected) {
+            const questionDiv = document.getElementById('q' + questionNumber);
+            const correct = questionDiv.getAttribute('data-correct');
+            const explanation = questionDiv.getAttribute('data-explanation');
+            const feedbackDiv = document.getElementById('feedback-' + questionNumber);
+            const isCorrect = (selected === correct);
+
+            processFeedback(questionNumber, isCorrect, correct, explanation, feedbackDiv, questionDiv);
+
+            const buttons = questionDiv.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                if (btn.innerText === correct) {
+                    btn.classList.add('correct-btn');
+                } else if (btn.innerText === selected && !isCorrect) {
+                    btn.classList.add('incorrect-btn');
+                }
+            });
+        }
+
+        function checkForm(questionNumber, correct1, correct2) {
+            const word1 = document.getElementById(`q${questionNumber}-word1`).value.trim();
+            const word2 = document.getElementById(`q${questionNumber}-word2`).value.trim();
+            const questionDiv = document.getElementById('q' + questionNumber);
+            const explanation = questionDiv.getAttribute('data-explanation');
+            const feedbackDiv = document.getElementById('feedback-' + questionNumber);
+
+            const isCorrect = (word1.toLowerCase() === correct1.toLowerCase() && word2.toLowerCase() === correct2.toLowerCase());
+            const correctString = `${correct1} ${correct2}`;
+
+            processFeedback(questionNumber, isCorrect, correctString, explanation, feedbackDiv, questionDiv);
+
+            document.getElementById(`q${questionNumber}-word1`).disabled = true;
+            document.getElementById(`q${questionNumber}-word2`).disabled = true;
+            document.getElementById(`btn-${questionNumber}`).disabled = true;
+        }
+    </script>
+</body>
+  </html>
+  
